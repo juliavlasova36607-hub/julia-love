@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://00bw61fejthy"]
+
+[ext_resource type="Texture2D" uid="uid://oxsikci5brxv" path="res://result_Коридор.jpg" id="1_dtupr"]
+[ext_resource type="Script" uid="uid://jr65doip5woi" path="res://control12.gd" id="2_763ur"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://РАМА-no-bg-preview (carve.photos).png" id="2_xkobq"]
+[ext_resource type="Script" uid="uid://p7lle3bwjc4y" path="res://rich_text_label12.gd" id="4_83nlq"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_xejf6"]
+
+[node name="Node2D" type="Control" unique_id=936907959]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1799179447]
+layout_mode = 0
+offset_right = 1980.0
+offset_bottom = 1080.0
+texture = ExtResource("1_dtupr")
+
+[node name="Control" type="Control" parent="." unique_id=909637149]
+anchors_preset = 0
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 1982.0
+offset_bottom = 1087.0
+script = ExtResource("2_763ur")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1183837220]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_top = 0.71000004
+anchor_right = 0.81100005
+anchor_bottom = 1.085
+offset_left = -0.710022
+offset_top = -0.5100708
+offset_right = 0.5428467
+offset_bottom = -2.8850098
+texture = ExtResource("2_xkobq")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1977901322]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.402
+anchor_top = 0.771
+anchor_right = 0.73800004
+anchor_bottom = 0.91600007
+offset_left = 0.22595215
+offset_top = 0.52593994
+offset_right = 0.5938721
+offset_bottom = -0.19604492
+theme_override_fonts/normal_font = ExtResource("4_xejf6")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("4_83nlq")

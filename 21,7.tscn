@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://b3lwcvcni3oim"]
+
+[ext_resource type="Texture2D" uid="uid://fyuv5e3sy6ox" path="res://Куртка в рукерозарии.png" id="1_eug1t"]
+[ext_resource type="Script" uid="uid://57glwvlxg04l" path="res://control21,7.gd" id="2_evqp4"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://РАМА-no-bg-preview (carve.photos).png" id="2_fb3rs"]
+[ext_resource type="Script" uid="uid://dope2urkradba" path="res://rich_text_label21,7.gd" id="4_7fqpd"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_rvvh2"]
+
+[node name="Node2D" type="Control" unique_id=1088527786]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1657789422]
+layout_mode = 0
+offset_right = 1978.0
+offset_bottom = 1079.0
+texture = ExtResource("1_eug1t")
+
+[node name="Control" type="Control" parent="." unique_id=607152591]
+anchors_preset = 0
+offset_right = 1985.0
+offset_bottom = 1083.0
+script = ExtResource("2_evqp4")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=350493428]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = 0.771
+anchor_right = 0.609
+anchor_bottom = 1.054
+offset_left = -0.8199997
+offset_top = 0.006958008
+offset_right = 0.1348877
+offset_bottom = 0.51794434
+texture = ExtResource("2_fb3rs")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=692251275]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.104
+anchor_top = 0.82400006
+anchor_right = 0.518
+anchor_bottom = 0.91600007
+offset_left = 0.55999756
+offset_top = -0.39208984
+offset_right = 0.77001953
+offset_bottom = -0.028076172
+theme_override_fonts/normal_font = ExtResource("4_rvvh2")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("4_7fqpd")

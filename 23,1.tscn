@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://d0dk5t3fqmemb"]
+
+[ext_resource type="Texture2D" uid="uid://bpkrgmr3lrje5" path="res://ГОРОДАаа.jpg" id="1_dotg2"]
+[ext_resource type="Script" uid="uid://d4h65u0nnaasf" path="res://control23,1.gd" id="1_iq475"]
+[ext_resource type="Script" uid="uid://5e3vq27hn14e" path="res://rich_text_label23,1.gd" id="2_dotg2"]
+
+[node name="Node2D" type="Control" unique_id=1110531690]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=386703939]
+layout_mode = 0
+offset_right = 1987.0
+offset_bottom = 1082.0
+texture = ExtResource("1_dotg2")
+
+[node name="Control" type="Control" parent="." unique_id=333165446]
+anchors_preset = 0
+offset_right = 1982.0
+offset_bottom = 1072.0
+script = ExtResource("1_iq475")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=891848899]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1116152038]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_dotg2")

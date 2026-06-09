@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bvsmyog6fkdk6"]
+
+[ext_resource type="Script" uid="uid://bq135kpjgckew" path="res://control44.gd" id="1_b5q75"]
+[ext_resource type="Texture2D" uid="uid://terrvvgo1tar" path="res://комна.png" id="1_eukqi"]
+[ext_resource type="Texture2D" uid="uid://gobmrsl5vl3x" path="res://рамка-Photoroom.png" id="2_b5q75"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_133ip"]
+[ext_resource type="Script" uid="uid://bu1038rghieq7" path="res://rich_text_label2.gd" id="4_eukqi"]
+
+[node name="Node2D" type="Control" unique_id=2054974370]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=293383541]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 1983.0
+offset_bottom = 1082.0
+texture = ExtResource("1_eukqi")
+
+[node name="Control" type="Control" parent="." unique_id=663344522]
+anchors_preset = 0
+offset_right = 1981.0
+offset_bottom = 1083.0
+script = ExtResource("1_b5q75")
+
+[node name="рамка" type="TextureRect" parent="Control" unique_id=1381477201]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.26200002
+anchor_top = 0.55600005
+anchor_right = 0.61300004
+anchor_bottom = 1.0
+offset_left = -0.022033691
+offset_top = -0.14807129
+offset_right = -0.35302734
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_b5q75")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=752407657]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_top = 0.80100006
+anchor_right = 0.57000005
+anchor_bottom = 0.93900007
+offset_left = -0.7300415
+offset_top = 0.51690674
+offset_right = 0.82995605
+offset_bottom = 0.062927246
+theme_override_fonts/normal_font = ExtResource("4_133ip")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("4_eukqi")

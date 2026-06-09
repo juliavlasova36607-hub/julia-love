@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://b6n7uqsjs5x1v"]
+
+[ext_resource type="Texture2D" uid="uid://bru5rs1ob5d1g" path="res://аа.png" id="1_7466l"]
+[ext_resource type="Script" uid="uid://c6vpwc1wgeog" path="res://кр.gd" id="3_3ljo8"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="3_erqi8"]
+[ext_resource type="Script" uid="uid://b2keb4sbxchu0" path="res://button_22.gd" id="5_66y0e"]
+
+[node name="Node2D" type="Control" unique_id=1383140053]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=98227246]
+layout_mode = 0
+offset_right = 1992.0
+offset_bottom = 1084.0
+texture = ExtResource("1_7466l")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1592721586]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 53.0
+offset_right = 847.0
+offset_bottom = 1009.0
+theme_override_fonts/normal_font = ExtResource("3_erqi8")
+theme_override_font_sizes/normal_font_size = 44
+text = "Имя: Вария Крон
+Возраст: 19
+Рост: 164
+Вес: 49
+Приехала: Из Кореи
+
+Характер: Довольно скрытная, эгоистичная задира, что держит около себя компанию стерв подружек. Вечно прикалывается и смотрит лицемерно. Считает себя лучше других. По слухам попала в академию за клевету. 
+Любимица преподши по математике, Вария часто унижает розарию, и влюблена в Криса.
+
+Любит: Тачки, косметику, парней
+
+Не любит: Девушек и тихонь"
+
+[node name="Button" type="Button" parent="." unique_id=69798553]
+layout_mode = 0
+offset_left = 1398.0
+offset_top = 987.0
+offset_right = 1929.0
+offset_bottom = 1051.0
+theme_override_fonts/font = ExtResource("3_erqi8")
+theme_override_font_sizes/font_size = 45
+text = "Next"
+script = ExtResource("3_3ljo8")
+
+[node name="Button2" type="Button" parent="." unique_id=591219073]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 987.0
+offset_right = 469.0
+offset_bottom = 1061.0
+theme_override_fonts/font = ExtResource("3_erqi8")
+theme_override_font_sizes/font_size = 45
+text = "back"
+script = ExtResource("5_66y0e")

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dd0fmi3m4fwwc"]
+
+[ext_resource type="Script" uid="uid://chf5ys54ey2cf" path="res://control22,6.gd" id="1_b7cge"]
+[ext_resource type="Texture2D" uid="uid://0xu5ft7pqy4" path="res://Шоколаддка.jpg" id="1_upx6q"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://РАМА-no-bg-preview (carve.photos).png" id="2_upx6q"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="3_rorc0"]
+[ext_resource type="Script" uid="uid://dclalam4nwfra" path="res://rich_text_label22,6.gd" id="4_cocl4"]
+
+[node name="Node2D" type="Control" unique_id=355621977]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=336574527]
+layout_mode = 0
+offset_right = 1987.0
+offset_bottom = 1092.0
+texture = ExtResource("1_upx6q")
+
+[node name="Control" type="Control" parent="." unique_id=1473187613]
+anchors_preset = 0
+offset_right = 1992.0
+offset_bottom = 1087.0
+script = ExtResource("1_b7cge")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=2027128156]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.030000001
+anchor_top = 0.72200006
+anchor_right = 0.5
+anchor_bottom = 0.98700005
+offset_left = -0.76000214
+offset_top = 0.18591309
+offset_right = -9.0
+offset_bottom = 0.13098145
+texture = ExtResource("2_upx6q")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1619072674]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.096
+anchor_top = 0.76000005
+anchor_right = 0.425
+anchor_bottom = 0.86600006
+offset_left = -0.23199463
+offset_top = -0.12005615
+offset_right = 0.39996338
+offset_bottom = -0.34204102
+theme_override_fonts/normal_font = ExtResource("3_rorc0")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("4_cocl4")
