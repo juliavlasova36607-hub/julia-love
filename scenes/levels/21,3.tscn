@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://crt00year6art"]
+
+[ext_resource type="Texture2D" uid="uid://bd17cvp4nc8xm" path="res://assets/images/указывает пальцем.png" id="1_5bjt3"]
+[ext_resource type="Script" uid="uid://rokqlewlsv7x" path="res://scripts/levels/control21,3.gd" id="2_so7ec"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="3_hn4q3"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_habu1"]
+[ext_resource type="Script" uid="uid://scaiqxwwwo18" path="res://scripts/levels/rich_text_label21,3.gd" id="5_s5fjr"]
+
+[node name="Node2D" type="Control" unique_id=2135668876]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1114047149]
+layout_mode = 0
+offset_right = 1988.0
+offset_bottom = 1090.0
+texture = ExtResource("1_5bjt3")
+
+[node name="Control" type="Control" parent="TextureRect" unique_id=200754463]
+anchors_preset = 0
+offset_right = 1984.0
+offset_bottom = 1090.0
+script = ExtResource("2_so7ec")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/Control" unique_id=1069412240]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042000003
+anchor_top = 0.73600006
+anchor_right = 0.57900006
+anchor_bottom = 1.0890001
+offset_left = 0.6719971
+offset_top = -0.24005127
+offset_right = -0.736084
+offset_bottom = -0.010131836
+texture = ExtResource("3_hn4q3")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/Control" unique_id=1724256420]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.116000004
+anchor_top = 0.785
+anchor_right = 0.5
+anchor_bottom = 0.93000007
+offset_left = 0.85598755
+offset_top = 0.3499756
+offset_right = 11.0
+offset_bottom = 0.29992676
+theme_override_fonts/normal_font = ExtResource("4_habu1")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("5_s5fjr")

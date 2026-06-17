@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dv8pw0vuw75sm"]
+
+[ext_resource type="Texture2D" uid="uid://i3o3e1crj71i" path="res://assets/images/Рэйй.jpg" id="1_lwnkn"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="2_17tq8"]
+[ext_resource type="Script" uid="uid://ckblojsbkoa1h" path="res://scripts/ui/button6.gd" id="3_3dowh"]
+[ext_resource type="Script" uid="uid://dwldhr8q6emve" path="res://scripts/ui/button_26.gd" id="4_3u43t"]
+
+[node name="Node2D" type="Control" unique_id=787405401]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1867002978]
+layout_mode = 0
+offset_right = 1983.0
+offset_bottom = 1082.0
+texture = ExtResource("1_lwnkn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect" unique_id=358566906]
+layout_mode = 0
+offset_left = 1227.0
+offset_top = 85.0
+offset_right = 1921.0
+offset_bottom = 989.0
+theme_override_fonts/normal_font = ExtResource("2_17tq8")
+theme_override_font_sizes/normal_font_size = 44
+text = "Имя: Рэй Сакамаки
+Возраст: 20
+Рост: 190
+Вес: 90
+Характер: Интелектуальный гений, что постоянно сдержан. Педант, Аристократичен, обаятелен, харизматичен, холодный, отстраненный, глубокий, цербер, одержимый романтикой и стихами, иногда говорит стихами, гениален, любитель свечей и игр разума. Всегда на шаг впереди, очень умен в тактиках и силен в расчетах, влюблен в розария.
+Попал: по слухам, за убийство
+"
+
+[node name="Button" type="Button" parent="." unique_id=1903160194]
+layout_mode = 0
+offset_left = 682.0
+offset_top = 975.0
+offset_right = 1183.0
+offset_bottom = 1049.0
+theme_override_fonts/font = ExtResource("2_17tq8")
+theme_override_font_sizes/font_size = 45
+text = "Next"
+script = ExtResource("3_3dowh")
+
+[node name="Button2" type="Button" parent="." unique_id=567074887]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 982.0
+offset_right = 443.0
+offset_bottom = 1056.0
+theme_override_fonts/font = ExtResource("2_17tq8")
+theme_override_font_sizes/font_size = 45
+text = "back"
+script = ExtResource("4_3u43t")

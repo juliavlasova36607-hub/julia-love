@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bhaqfb2s4wgxx"]
+
+[ext_resource type="Texture2D" uid="uid://w1c7ych54oa3" path="res://assets/images/РОза РЭй в карцер е.png" id="1_hu8lc"]
+[ext_resource type="Script" uid="uid://dalu60axbxj3b" path="res://scripts/levels/control22,9.gd" id="2_mr4d3"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="3_5ob5m"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="3_mr4d3"]
+[ext_resource type="Script" uid="uid://cof1eexbcxxdx" path="res://scripts/levels/rich_text_label22,9.gd" id="4_nfaxb"]
+
+[node name="Node2D" type="Control" unique_id=1052242462]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1441422337]
+layout_mode = 0
+offset_left = -15.0
+offset_right = 1992.0
+offset_bottom = 1087.0
+texture = ExtResource("1_hu8lc")
+
+[node name="Control" type="Control" parent="." unique_id=97012989]
+anchors_preset = 0
+offset_right = 1992.0
+offset_bottom = 1080.0
+script = ExtResource("2_mr4d3")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=997111338]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.56
+anchor_top = 0.77000004
+anchor_right = 0.9760001
+anchor_bottom = 1.0320001
+offset_left = 0.47998047
+offset_top = -0.29003906
+offset_right = 0.8078613
+offset_bottom = 0.5358887
+texture = ExtResource("3_mr4d3")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=505320326]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.62200004
+anchor_top = 0.80500007
+anchor_right = 0.91200006
+anchor_bottom = 0.91300005
+offset_left = 0.97595215
+offset_top = 0.014953613
+offset_right = -0.70410156
+offset_bottom = -0.3010254
+theme_override_fonts/normal_font = ExtResource("3_5ob5m")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("4_nfaxb")
