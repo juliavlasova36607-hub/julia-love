@@ -9,7 +9,7 @@ func _on_exit_pressed():
 	disabled = true
 	
 
-	var original_text = text
+	var _original_text = text
 	text = "Выход..."
 
 	var tween = create_tween()

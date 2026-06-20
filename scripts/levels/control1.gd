@@ -14,7 +14,7 @@ var dialogues = [
 var current_index = 0
 
 func _ready():
-	GameManager.set_current_scene("res://")
+	GameManager.set_current_scene("res://scenes/levels/1.tscn")
 	if dialog_text == null:
 		print("ОШИБКА: не найдено DialogTexЧерный экран. Вспышка фар. Вибрация от удара…t")
 		return
@@ -29,7 +29,7 @@ func show_current_dialogue():
 		return
 	
 	var d = dialogues[current_index]
-	dialog_text.show_text(d["text"], d["speaker"]) #"speaker"
+	dialog_text.show_text(d["text"], d["name"]) #"speaker"
 
 func _on_dialog_text_next_dialogue():
 	current_index += 1

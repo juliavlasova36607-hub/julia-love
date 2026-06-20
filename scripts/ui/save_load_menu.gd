@@ -8,13 +8,13 @@ extends Control
 var is_save_mode: bool = false
 var from_game: bool = false
 var game_manager: Node
+var is_loading: bool = false
+var pending_slot_id: int = -1  # Для хранения слота при перезаписи
 
 func _ready():
 	game_manager = get_node("/root/GameManager")
-	
 	mode_button.pressed.connect(_toggle_mode)
 	back_button.pressed.connect(_on_back_pressed)
-	
 	_create_slots()
 	_update_display()
 
@@ -22,7 +22,6 @@ func _create_slots():
 	for child in grid_container.get_children():
 		child.queue_free()
 	
-	# ✅ 3 колонки, сетка 3x3
 	grid_container.columns = 3
 	grid_container.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	grid_container.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -144,16 +143,23 @@ func _update_slots_display():
 			preview.color = Color(0.2, 0.2, 0.25, 1.0)
 
 func _on_slot_pressed(slot_id: int):
+	if is_loading:
+		return
+	
 	if is_save_mode:
 		var has_save = game_manager.has_save_in_slot(slot_id)
 		
 		if has_save:
-			_show_confirm_dialog("Слот " + str(slot_id + 1) + " уже занят.\nПерезаписать?", slot_id)
+			# Сохраняем ID слота и показываем диалог
+			pending_slot_id = slot_id
+			_show_confirm_dialog("Слот " + str(slot_id + 1) + " уже занят.\nПерезаписать?")
 		else:
 			await _save_to_slot(slot_id)
 	else:
 		if game_manager.has_save_in_slot(slot_id):
+			is_loading = true
 			await _load_from_slot(slot_id)
+			is_loading = false
 		else:
 			_show_message("В этом слоте нет сохранения!")
 
@@ -188,9 +194,8 @@ func _load_from_slot(slot_id: int):
 	
 	save_name_label.text = "ЗАГРУЗКА..."
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.3).timeout
 	
-	# ✅ Получаем путь к сцене ДО загрузки
 	var save_info = game_manager.get_save_info(slot_id)
 	var scene_path = save_info.get("scene_path", "")
 	
@@ -200,8 +205,8 @@ func _load_from_slot(slot_id: int):
 		_update_slots_display()
 		return
 	
-	# ✅ Переход с затемнением
-	await GameManager.change_scene_with_fade(scene_path, 0.3)
+	print("🔄 Загружаем сцену: ", scene_path)
+	GameManager.change_scene_with_fade(scene_path, 0.3)
 
 func _get_slot_panel(slot_id: int) -> PanelContainer:
 	for child in grid_container.get_children():
@@ -210,41 +215,54 @@ func _get_slot_panel(slot_id: int) -> PanelContainer:
 	return null
 
 func _toggle_mode():
+	if is_loading:
+		return
 	is_save_mode = !is_save_mode
 	_update_display()
 
 func _on_back_pressed():
+	if is_loading:
+		return
+	
+	print("🔙 Назад в: ", "игру" if from_game and game_manager.current_scene_path != "" else "меню")
+	
 	if from_game and game_manager.current_scene_path != "":
-		# Возврат в игру с затемнением
-		await GameManager.change_scene_with_fade(game_manager.current_scene_path)
+		GameManager.change_scene_with_fade(game_manager.current_scene_path, 0.3)
 	else:
-		# Возврат в меню с затемнением
-		await GameManager.change_scene_with_fade("res://scenes/ui/menu.tscn")
+		GameManager.change_scene_with_fade("res://scenes/ui/menu.tscn", 0.3)
 
-func _show_confirm_dialog(message: String, slot_id: int):
-	var dialog = AcceptDialog.new()
+func _show_confirm_dialog(message: String):
+	# Создаем диалог
+	var dialog = ConfirmationDialog.new()
+	dialog.title = "Подтверждение"
 	dialog.dialog_text = message
 	dialog.get_ok_button().text = "Да"
+	dialog.get_cancel_button().text = "Нет"
 	
-	var cancel_button = Button.new()
-	cancel_button.text = "Нет"
-	dialog.add_child(cancel_button)
+	# Подключаем сигналы
+	dialog.confirmed.connect(_on_confirm_overwrite)
+	dialog.canceled.connect(_on_cancel_overwrite)
 	
 	add_child(dialog)
 	dialog.popup_centered()
-	
-	await dialog.ready
-	var result = await dialog.confirmed
-	
-	if result:
+
+func _on_confirm_overwrite():
+	print("✅ Подтверждена перезапись слота ", pending_slot_id)
+	if pending_slot_id >= 0:
+		# Сохраняем ID и запускаем сохранение
+		var slot_id = pending_slot_id
+		pending_slot_id = -1
 		await _save_to_slot(slot_id)
-	
-	dialog.queue_free()
+
+func _on_cancel_overwrite():
+	print("❌ Отмена перезаписи")
+	pending_slot_id = -1
 
 func _show_message(msg: String):
 	var label = Label.new()
 	label.text = msg
 	label.position = get_viewport().size / 2
+	label.add_theme_font_size_override("font_size", 24)
 	add_child(label)
 	await get_tree().create_timer(1.5).timeout
 	label.queue_free()

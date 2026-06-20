@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://jqm3g183o0qt"]
 
 [ext_resource type="Texture2D" uid="uid://cvu6u3q8xpcms" path="res://assets/images/черный фон.jpg" id="1_retg4"]
-[ext_resource type="Script" uid="uid://dekghyeuf7shw" path="res://control30,6.gd" id="2_7b68m"]
+[ext_resource type="Script" uid="uid://dekghyeuf7shw" path="res://scripts/levels/control30,6.gd" id="2_7b68m"]
 [ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="2_8xglw"]
 [ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="3_7b68m"]
-[ext_resource type="Script" uid="uid://bbf022dhuku8y" path="res://rich_text_label30,6.gd" id="5_yidrt"]
+[ext_resource type="Script" uid="uid://bbf022dhuku8y" path="res://scripts/levels/rich_text_label30,6.gd" id="5_yidrt"]
 
 [node name="Node2D" type="Control" unique_id=2824821]
 layout_mode = 3

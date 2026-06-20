@@ -18,6 +18,7 @@ var dialogues = [
 var current_index = 0
 
 func _ready():
+	GameManager.set_current_scene("res://scenes/levels/3.tscn")
 	if dialog_text == null:
 		print("ОШИБКА: не найдено DialogText")
 		return

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c1sgq433q5m6p"]
 
 [ext_resource type="Texture2D" uid="uid://daixmgysc5f7a" path="res://assets/images/3 кадр выход.png" id="1_5xlr0"]
-[ext_resource type="Script" uid="uid://se0qufbb3xdm" path="res://control30,3.gd" id="2_7doa3"]
+[ext_resource type="Script" uid="uid://se0qufbb3xdm" path="res://scripts/levels/control30,3.gd" id="2_7doa3"]
 [ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="3_wox5i"]
-[ext_resource type="Script" uid="uid://rggho1xmtmmb" path="res://rich_text_label30,3.gd" id="4_m5yp5"]
+[ext_resource type="Script" uid="uid://rggho1xmtmmb" path="res://scripts/levels/rich_text_label30,3.gd" id="4_m5yp5"]
 
 [node name="Node2D" type="Control" unique_id=654535470]
 layout_mode = 3

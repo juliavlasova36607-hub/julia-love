@@ -24,6 +24,7 @@ var is_dialogue_active = true
 @onready var dialog_window = $TextureRect
 
 func _ready():
+	GameManager.set_current_scene("res://scenes/levels/20.tscn")
 	show_current_line()
 	focus_mode = Control.FOCUS_ALL
 	grab_focus()

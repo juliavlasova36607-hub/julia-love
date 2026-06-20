@@ -4,6 +4,7 @@ var current_scene_path: String = ""
 var return_to_game: bool = false
 var settings_open: bool = false
 var settings_layer: CanvasLayer = null
+var is_changing_scene: bool = false
 
 const SettingsScene = preload("res://scenes/ui/settings.tscn")
 const SaveLoadScene = preload("res://scenes/ui/save_load_menu.tscn")
@@ -34,6 +35,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		open_settings()
 
 func open_settings():
+	if is_changing_scene:
+		return
+	
 	settings_open = true
 	
 	if return_to_game and current_scene_path != "":
@@ -49,38 +53,109 @@ func open_settings():
 		get_tree().root.add_child(settings_layer)
 	else:
 		# === МЫ В МЕНЮ → меняем сцену ===
+		is_changing_scene = true
 		get_tree().change_scene_to_file("res://scenes/ui/settings.tscn")
 		await get_tree().create_timer(0.1).timeout
 		settings_open = false
-
+		is_changing_scene = false
+		
 func remove_settings_overlay():
 	"""Удаляет оверлей настроек"""
+	print("  🗑️ remove_settings_overlay() вызван")
+	
+	# Снимаем паузу
 	get_tree().paused = false
 	
 	if settings_layer != null and is_instance_valid(settings_layer):
+		print("  ✅ Удаляем settings_layer")
 		settings_layer.queue_free()
 		settings_layer = null
+	else:
+		print("  ⚠️ settings_layer уже null или невалиден")
 	
 	settings_open = false
+	print("  ✅ settings_open = false")
 
 func open_save_load_menu(is_saving: bool, is_from_game: bool):
-	"""Открывает меню сохранения/загрузки как отдельную сцену"""
-	# Сохраняем текущую сцену если мы в игре
+	"""Открывает меню сохранения/загрузки"""
+	print("=========================================")
+	print("📂 open_save_load_menu ВЫЗВАН")
+	print("  is_saving: ", is_saving)
+	print("  is_from_game: ", is_from_game)
+	print("  current_scene_path: ", current_scene_path)
+	print("  Текущая сцена: ", get_tree().current_scene.scene_file_path if get_tree().current_scene else "null")
+	print("=========================================")
+	
+	if is_changing_scene:
+		print("⚠️ Уже идет смена сцены, пропускаем")
+		return
+	
+	# Проверяем существование файла
+	if not ResourceLoader.exists("res://scenes/ui/save_load_menu.tscn"):
+		print("❌ Ошибка: файл save_load_menu.tscn не найден!")
+		print("  Путь: res://scenes/ui/save_load_menu.tscn")
+		return
+	
+	print("  ✅ Файл найден!")
+	
+	is_changing_scene = true
+	
+	# Сохраняем текущую сцену
 	if is_from_game and current_scene_path != "":
 		return_to_game = true
+		print("  ✅ return_to_game = true")
 	
-	# Просто меняем сцену
-	get_tree().change_scene_to_file("res://scenes/ui/save_load_menu.tscn")
+	# Снимаем паузу
+	get_tree().paused = false
+	print("  ✅ Пауза снята")
 	
-	# Передаем параметры после загрузки (через сигнал или глобальную переменную)
+	# Удаляем оверлей настроек если есть
+	if settings_layer != null and is_instance_valid(settings_layer):
+		print("  🗑️ Удаляем оверлей настроек...")
+		settings_layer.queue_free()
+		settings_layer = null
+		settings_open = false
+		await get_tree().process_frame
+		await get_tree().process_frame
+		print("  ✅ Оверлей удален")
+	
+	# Меняем сцену
+	print("  🔄 Меняем сцену на save_load_menu...")
+	var error = get_tree().change_scene_to_file("res://scenes/ui/save_load_menu.tscn")
+	if error != OK:
+		print("❌ Ошибка смены сцены: ", error)
+		is_changing_scene = false
+		return
+	print("  ✅ change_scene_to_file выполнен (error: ", error, ")")
+	
+	# Ждем загрузки
+	print("  ⏳ Ждем загрузки сцены...")
 	await get_tree().process_frame
+	await get_tree().process_frame
+	print("  ✅ Ожидание завершено")
+	
 	var menu = get_tree().current_scene
-	if menu:
+	print("  Текущая сцена после загрузки: ", menu.scene_file_path if menu else "null")
+	
+	if menu and menu is Control:
+		print("  ✅ Меню загружено!")
 		menu.is_save_mode = is_saving
 		menu.from_game = is_from_game
-
-# === ФУНКЦИИ ДЛЯ РАБОТЫ С СОХРАНЕНИЯМИ ===
-
+		print("  ✅ is_save_mode=", menu.is_save_mode)
+		print("  ✅ from_game=", menu.from_game)
+		
+		if menu.has_method("_update_display"):
+			menu._update_display()
+			print("  ✅ Вызван _update_display()")
+	else:
+		print("❌ МЕНЮ НЕ ЗАГРУЖЕНО!")
+		print("  menu: ", menu)
+		print("  тип menu: ", typeof(menu))
+	
+	is_changing_scene = false
+	print("=========================================")
+	print("📂 open_save_load_menu ЗАВЕРШЕН")
+	print("=========================================")
 func get_save_info(slot_id: int) -> Dictionary:
 	var file_path = "user://save_slot_" + str(slot_id) + ".json"
 	if not FileAccess.file_exists(file_path):
@@ -111,7 +186,6 @@ func save_game(slot_id: int) -> bool:
 		print("❌ Ошибка: не удалось открыть файл для записи")
 		return false
 	
-	# ⚠️ ВАЖНО: если current_scene_path пустой, берём текущую сцену
 	var path_to_save = current_scene_path
 	if path_to_save == "":
 		var current = get_tree().current_scene
@@ -151,55 +225,72 @@ func load_game(slot_id: int) -> bool:
 		print("❌ Ошибка: путь к сцене пустой!")
 		return false
 	
-	# Проверяем, существует ли файл сцены
 	if not ResourceLoader.exists(scene_path):
 		print("❌ Ошибка: файл сцены не существует! ", scene_path)
 		return false
 	
 	print("✅ Загружаем сцену: ", scene_path)
 	
-	# Снимаем паузу если была
 	get_tree().paused = false
-	
-	# Очищаем флаги
 	clear_return()
 	
-	# ✅ Загружаем сцену с затемнением
 	await change_scene_with_fade(scene_path, 0.3)
 	
 	return true
 	
 func change_scene_with_fade(scene_path: String, fade_duration: float = 0.3) -> void:
-	"""
-	Переход между сценами с затемнением.
-	fade_duration - длительность затемнения в секундах (по умолчанию 0.3)
-	"""
-	# Создаём чёрный слой поверх всего
+	"""Переход между сценами с затемнением."""
+	if is_changing_scene:
+		print("⚠️ Уже идет смена сцены, пропускаем")
+		return
+	
+	print("🔄 change_scene_with_fade вызван для: ", scene_path)
+	
+	if not ResourceLoader.exists(scene_path):
+		print("❌ Ошибка: файл сцены не существует! ", scene_path)
+		return
+	
+	is_changing_scene = true
+	
+	# Создаём чёрный слой
 	var fade_layer = CanvasLayer.new()
-	fade_layer.layer = 1000  # Очень высокий слой
+	fade_layer.layer = 1000
 	fade_layer.name = "FadeLayer"
 	
-	# Создаём чёрный прямоугольник на весь экран
 	var color_rect = ColorRect.new()
-	color_rect.color = Color(0, 0, 0, 0)  # Прозрачный чёрный
+	color_rect.color = Color(0, 0, 0, 0)
 	color_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
-	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE  # Не блокирует клики
+	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	fade_layer.add_child(color_rect)
 	get_tree().root.add_child(fade_layer)
 	
-	# === ЗАТЕМНЕНИЕ ===
+	# Затемнение
 	var tween = create_tween()
 	tween.tween_property(color_rect, "color:a", 1.0, fade_duration)
 	await tween.finished
 	
-	# === СМЕНА СЦЕНЫ ===
-	get_tree().change_scene_to_file(scene_path)
-	await get_tree().process_frame  # Ждём, чтобы сцена успела загрузиться
+	print("✅ Затемнение завершено, меняем сцену...")
 	
-	# === ПРОСВЕТЛЕНИЕ ===
+	# Снимаем паузу если была
+	get_tree().paused = false
+	
+	# Смена сцены
+	var error = get_tree().change_scene_to_file(scene_path)
+	if error != OK:
+		print("❌ Ошибка смены сцены: ", error)
+		fade_layer.queue_free()
+		is_changing_scene = false
+		return
+	
+	await get_tree().process_frame
+	
+	print("✅ Сцена загружена, просветляем...")
+	
+	# Просветление
 	var tween2 = create_tween()
 	tween2.tween_property(color_rect, "color:a", 0.0, fade_duration)
 	await tween2.finished
 	
-	# Удаляем слой
 	fade_layer.queue_free()
+	is_changing_scene = false
+	print("✅ Переход завершен")

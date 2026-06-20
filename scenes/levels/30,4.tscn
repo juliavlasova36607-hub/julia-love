@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cd857edsprw28" path="res://assets/images/5 кадр.png" id="1_vcc18"]
 [ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="2_caici"]
-[ext_resource type="Script" uid="uid://bouw068oovurm" path="res://control30,4.gd" id="2_i3v1c"]
-[ext_resource type="Script" uid="uid://dqp5umhq77uiw" path="res://rich_text_label30,4.gd" id="4_fqfv1"]
+[ext_resource type="Script" uid="uid://bouw068oovurm" path="res://scripts/levels/control30,4.gd" id="2_i3v1c"]
+[ext_resource type="Script" uid="uid://dqp5umhq77uiw" path="res://scripts/levels/rich_text_label30,4.gd" id="4_fqfv1"]
 [ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_wu2jp"]
 
 [node name="Node2D" type="Control" unique_id=700814116]

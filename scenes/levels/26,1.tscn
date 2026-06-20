@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dhjmrtkawjl26" path="res://assets/images/Села и сидит.png" id="1_aysh2"]
 [ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="1_h6spt"]
 [ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="2_12jdb"]
-[ext_resource type="Script" uid="uid://drdpnjilisyfh" path="res://scenes/levels/control26,1.gd" id="2_xled1"]
-[ext_resource type="Script" uid="uid://com8hpbgwngwm" path="res://scenes/levels/rich_text_label26,1.gd" id="5_dy8l1"]
+[ext_resource type="Script" uid="uid://drdpnjilisyfh" path="res://scripts/levels/control26,1.gd" id="2_xled1"]
+[ext_resource type="Script" uid="uid://com8hpbgwngwm" path="res://scripts/levels/rich_text_label26,1.gd" id="5_dy8l1"]
 
 [node name="Node2D" type="Control" unique_id=1995902351]
 layout_mode = 3
@@ -13,6 +13,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1980.0
 offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1661499084]
 layout_mode = 0
