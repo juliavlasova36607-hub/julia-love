@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://h7l7or6r6b32"]
+
+[ext_resource type="Texture2D" uid="uid://lidqh5sxtsqs" path="res://assets/images/лист на асфальте 1.png" id="1_ljy31"]
+[ext_resource type="Script" uid="uid://du404bmoli4pk" path="res://scripts/levels/control21,17.gd" id="2_5wvpy"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="3_w7cfq"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_y410q"]
+[ext_resource type="Script" uid="uid://bt6kjsahiand3" path="res://scripts/levels/rich_text_label21,17.gd" id="5_snrnh"]
+
+[node name="Node2D" type="Control" unique_id=562661720]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_vertical_guides_ = [-766.0]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=923606088]
+layout_mode = 0
+offset_right = 1985.0
+offset_bottom = 1080.0
+texture = ExtResource("1_ljy31")
+
+[node name="Control" type="Control" parent="." unique_id=418804670]
+anchors_preset = 0
+offset_right = 1981.0
+offset_bottom = 1081.0
+script = ExtResource("2_5wvpy")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1454919737]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.75900006
+anchor_right = 0.9760001
+anchor_bottom = 1.021
+offset_left = -0.5500488
+offset_top = 0.52093506
+offset_right = 0.54382324
+offset_bottom = 0.2989502
+texture = ExtResource("3_w7cfq")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=574315604]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.61700004
+anchor_top = 0.79800004
+anchor_right = 0.91400003
+anchor_bottom = 0.90300006
+offset_left = -0.2770996
+offset_top = 0.36193848
+offset_right = -0.6340332
+offset_bottom = -0.1430664
+theme_override_fonts/normal_font = ExtResource("4_y410q")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("5_snrnh")

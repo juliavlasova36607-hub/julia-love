@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bhiva1xcbiqqr"]
+
+[ext_resource type="Texture2D" uid="uid://bc00im21tf8u" path="res://assets/images/адам смотрят другдругу.jpg" id="1_7kfdj"]
+[ext_resource type="Script" uid="uid://iari72vlmqud" path="res://scripts/levels/control20,1.gd" id="2_jupjv"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="3_qqbpv"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_vvqkg"]
+[ext_resource type="Script" uid="uid://ddalnpgfmjec7" path="res://scripts/levels/rich_text_label20,1.gd" id="5_bp1de"]
+
+[node name="Node2D" type="Control" unique_id=1472115391]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=460475251]
+layout_mode = 0
+offset_right = 1992.0
+offset_bottom = 1080.0
+texture = ExtResource("1_7kfdj")
+
+[node name="Control" type="Control" parent="." unique_id=1496990422]
+anchors_preset = 0
+offset_right = 1989.0
+offset_bottom = 1075.0
+script = ExtResource("2_jupjv")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=2052448412]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34800002
+anchor_top = 0.78300005
+anchor_right = 0.80300003
+anchor_bottom = 1.059
+offset_left = 0.8279419
+offset_top = 0.27496338
+offset_right = 0.83288574
+offset_bottom = -0.42504883
+texture = ExtResource("3_qqbpv")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1448791917]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.416
+anchor_top = 0.822
+anchor_right = 0.739
+anchor_bottom = 0.93200004
+offset_left = -0.42401123
+offset_top = 0.3499756
+offset_right = 0.12890625
+offset_bottom = 0.099975586
+theme_override_fonts/normal_font = ExtResource("4_vvqkg")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("5_bp1de")

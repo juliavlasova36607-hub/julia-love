@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bushe5a1lh3x5"]
+
+[ext_resource type="Texture2D" uid="uid://dw4g4kujpx176" path="res://assets/images/Горячий чай.png" id="1_8phci"]
+[ext_resource type="Script" uid="uid://b7oaj8s42u8q8" path="res://scripts/levels/control23.gd" id="2_spdq5"]
+[ext_resource type="Texture2D" uid="uid://gobmrsl5vl3x" path="res://assets/images/рамка-Photoroom.png" id="3_2r8qp"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_3klgn"]
+[ext_resource type="Script" uid="uid://cikmyb1wcgmtw" path="res://scripts/levels/rich_text_label23.gd" id="5_re82g"]
+
+[node name="Node2D" type="Control" unique_id=1931853258]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2137730336]
+layout_mode = 0
+offset_right = 1985.0
+offset_bottom = 1082.0
+texture = ExtResource("1_8phci")
+
+[node name="Control" type="Control" parent="." unique_id=1913608147]
+anchors_preset = 0
+offset_right = 1982.0
+offset_bottom = 1076.0
+script = ExtResource("2_spdq5")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1986759825]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.528
+anchor_top = 0.549
+anchor_right = 0.96000004
+anchor_bottom = 0.97200006
+offset_left = 0.5040283
+offset_top = 0.27600098
+offset_right = -0.7200928
+offset_bottom = 0.12792969
+texture = ExtResource("3_2r8qp")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=536964220]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.60400003
+anchor_top = 0.794
+anchor_right = 0.88500005
+anchor_bottom = 0.92
+offset_left = 0.87194824
+offset_top = -0.34405518
+offset_right = 0.92993164
+offset_bottom = 0.079956055
+theme_override_fonts/normal_font = ExtResource("4_3klgn")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("5_re82g")

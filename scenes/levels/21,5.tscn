@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://ct6ohb1b0gom"]
+
+[ext_resource type="Texture2D" uid="uid://ir0wx7q8nupb" path="res://assets/images/Стоит над душой.png" id="1_uw83d"]
+[ext_resource type="Script" uid="uid://dm56ivnbwb18c" path="res://scripts/levels/control21,5.gd" id="2_g4urv"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="3_6q28y"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_c0j3v"]
+[ext_resource type="Script" uid="uid://dsk4vv2wdhjoh" path="res://scripts/levels/rich_text_label21,5.gd" id="5_etlh8"]
+
+[node name="Node2D" type="Control" unique_id=524951221]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=810947793]
+layout_mode = 0
+offset_right = 1978.0
+offset_bottom = 1079.0
+texture = ExtResource("1_uw83d")
+
+[node name="Control" type="Control" parent="." unique_id=586119311]
+anchors_preset = 0
+offset_right = 1978.0
+offset_bottom = 1083.0
+script = ExtResource("2_g4urv")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=762065484]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = 0.735
+anchor_right = 0.52400005
+anchor_bottom = 1.0300001
+offset_left = -0.73600006
+offset_top = -0.005004883
+offset_right = 0.5279541
+offset_bottom = 0.5098877
+texture = ExtResource("3_6q28y")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1435506587]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.079
+anchor_top = 0.777
+anchor_right = 0.44300002
+anchor_bottom = 0.89800006
+offset_left = 0.73799133
+offset_top = -0.49102783
+offset_right = -0.25402832
+offset_bottom = -0.5340576
+theme_override_fonts/normal_font = ExtResource("4_c0j3v")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("5_etlh8")

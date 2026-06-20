@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bnbqrbvsabetd"]
+
+[ext_resource type="Texture2D" uid="uid://bnjya6wu1t6lp" path="res://assets/images/Гонки.png" id="1_h48h3"]
+[ext_resource type="Script" uid="uid://bs5ukm0tl7jcw" path="res://scripts/levels/control27,1.gd" id="2_qfgj1"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="3_qeqga"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_5pdtj"]
+[ext_resource type="Script" uid="uid://bap1boupkjugl" path="res://scripts/levels/rich_text_label27,1.gd" id="5_l0xxy"]
+
+[node name="Node2D" type="Control" unique_id=1717048736]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1751310485]
+layout_mode = 0
+offset_right = 1980.0
+offset_bottom = 1079.0
+texture = ExtResource("1_h48h3")
+
+[node name="Control" type="Control" parent="." unique_id=2082610766]
+anchors_preset = 0
+offset_right = 1980.0
+offset_bottom = 1079.0
+script = ExtResource("2_qfgj1")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1429323691]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25100002
+anchor_top = 0.75600004
+anchor_right = 0.768
+anchor_bottom = 1.0910001
+offset_left = 0.019958496
+offset_top = 0.27593994
+offset_right = 0.35998535
+offset_bottom = -0.18908691
+texture = ExtResource("3_qeqga")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1589643841]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33
+anchor_top = 0.804
+anchor_right = 0.69500005
+anchor_bottom = 0.94100004
+offset_left = 0.5999756
+offset_top = 0.4840088
+offset_right = -0.100097656
+offset_bottom = -0.3390503
+theme_override_fonts/normal_font = ExtResource("4_5pdtj")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("5_l0xxy")

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cxn3w5c2dlv0w"]
+
+[ext_resource type="Texture2D" uid="uid://cms78ruqtxqmo" path="res://assets/images/result_galery.png" id="1_8hvpv"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="2_2ch5y"]
+[ext_resource type="Script" uid="uid://u704j5duro1" path="res://scripts/levels/nex.gd" id="3_usx4v"]
+
+[node name="Node2D" type="Control" unique_id=435369739]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=792522246]
+layout_mode = 0
+offset_right = 1980.0
+offset_bottom = 1080.0
+texture = ExtResource("1_8hvpv")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1031849727]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 59.0
+offset_right = 1121.0
+offset_bottom = 991.0
+theme_override_fonts/normal_font = ExtResource("2_2ch5y")
+theme_override_font_sizes/normal_font_size = 44
+text = "Главная героиня: Розария 
+Лет: 19
+Рост: 156
+Вес: 47
+Характер: Со своими друзьями, открыта и веселая. Она экстраверт, но в своем кругу. Ей нравится автомобили и техники, и не любит шумных людей.
+Розария, довольна скромная на публике, и с незнакомцами, она ищет любую причину уйти. 
+Запах: Курение, электронная сигарета. Ее запах это розовое вино, клубника, манго.
+Не любит персонажей: Адам и Вария
+Влюблена: В криса, но скрывает, стесняется его, краснеет."
+
+[node name="Button" type="Button" parent="." unique_id=440111364]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 1007.0
+offset_right = 1131.0
+offset_bottom = 1061.0
+theme_override_fonts/font = ExtResource("2_2ch5y")
+theme_override_font_sizes/font_size = 44
+text = "Next"
+script = ExtResource("3_usx4v")

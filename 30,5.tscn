@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://by3doghlc3cg1"]
+
+[ext_resource type="Texture2D" uid="uid://bd6ipihbqhtwg" path="res://assets/images/итог.png" id="1_h2pkg"]
+[ext_resource type="Script" uid="uid://bvg5d6dcdgyoh" path="res://control30,5.gd" id="2_nmgc3"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="3_rsn4i"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_wwlqb"]
+[ext_resource type="Script" uid="uid://cfunnl5gsdfu0" path="res://rich_text_label30,5.gd" id="5_lmqjd"]
+
+[node name="Node2D" type="Control" unique_id=673352431]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=371568060]
+layout_mode = 0
+offset_right = 1982.0
+offset_bottom = 1080.0
+texture = ExtResource("1_h2pkg")
+
+[node name="Control" type="Control" parent="." unique_id=865156655]
+anchors_preset = 0
+offset_right = 1978.0
+offset_bottom = 1082.0
+script = ExtResource("2_nmgc3")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=168934329]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53400004
+anchor_top = 0.77000004
+anchor_right = 0.99000007
+anchor_bottom = 1.0730001
+offset_left = 0.7479248
+offset_top = -0.14001465
+offset_right = 0.7799072
+offset_bottom = 0.013916016
+texture = ExtResource("3_rsn4i")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=169547558]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.605
+anchor_top = 0.81600004
+anchor_right = 0.92300004
+anchor_bottom = 0.934
+offset_left = 0.30993652
+offset_top = 0.08795166
+offset_right = 0.3059082
+offset_bottom = -0.5880127
+theme_override_fonts/normal_font = ExtResource("4_wwlqb")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("5_lmqjd")

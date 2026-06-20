@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://d3kh4sih5308i"]
+
+[ext_resource type="Script" uid="uid://b2smkrsl6u2vn" path="res://scripts/ui/settings.gd" id="1_8wfqe"]
+
+[node name="Control" type="Control" unique_id=1518716848]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8wfqe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1675569980]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 310.0
+offset_right = 1954.0
+offset_bottom = 1066.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1539303806]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1976764261]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=749688849]
+layout_mode = 2
+
+[node name="TextSpeedSlider" type="HSlider" parent="VBoxContainer/HBoxContainer" unique_id=262827935]
+layout_mode = 2
+
+[node name="SaveButton" type="Button" parent="VBoxContainer" unique_id=1250380235]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Сохранить"
+
+[node name="LoadButton" type="Button" parent="VBoxContainer" unique_id=368568239]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "загрузки"
+
+[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=630428053]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "назад"
+
+[node name="MenuButton" type="Button" parent="VBoxContainer" unique_id=1557269564]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "меню"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=384069928]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "выход"

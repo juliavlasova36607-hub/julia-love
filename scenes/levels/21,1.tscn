@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://blo72lgvksfko"]
+
+[ext_resource type="Texture2D" uid="uid://cifg5qbfall6x" path="res://assets/images/РемонтРоз.jpg" id="1_8uv5u"]
+[ext_resource type="Script" uid="uid://cf6duityf6it2" path="res://scripts/levels/control21,1.gd" id="2_fqpry"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="3_18ggo"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_fckvk"]
+[ext_resource type="Script" uid="uid://d3b6kundiu46g" path="res://scripts/levels/rich_text_label21,1.gd" id="5_plifn"]
+
+[node name="Node2D" type="Control" unique_id=164570979]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=775240839]
+layout_mode = 0
+offset_right = 1985.0
+offset_bottom = 1082.0
+texture = ExtResource("1_8uv5u")
+
+[node name="Control" type="Control" parent="." unique_id=1070719723]
+anchors_preset = 0
+offset_right = 1985.0
+offset_bottom = 1077.0
+script = ExtResource("2_fqpry")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=508240569]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.136
+anchor_top = 0.72700006
+anchor_right = 0.61
+anchor_bottom = 1.047
+offset_left = -0.960022
+offset_top = 0.020935059
+offset_right = 0.15002441
+offset_bottom = 0.38098145
+texture = ExtResource("3_18ggo")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1871742014]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.201
+anchor_top = 0.77500004
+anchor_right = 0.53400004
+anchor_bottom = 0.89400005
+offset_left = -0.98501587
+offset_top = 0.32495117
+offset_right = 0.009887695
+offset_bottom = 0.16192627
+theme_override_fonts/normal_font = ExtResource("4_fckvk")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("5_plifn")

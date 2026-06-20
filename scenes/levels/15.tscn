@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://d0gefwkllbp6w"]
+
+[ext_resource type="Texture2D" uid="uid://bl1ati3cmri0g" path="res://assets/images/Все вместе гараж главный.jpg" id="1_2q87n"]
+[ext_resource type="Script" uid="uid://bo764vvbv43in" path="res://scripts/levels/control15.gd" id="2_acbrd"]
+[ext_resource type="Texture2D" uid="uid://gobmrsl5vl3x" path="res://assets/images/рамка-Photoroom.png" id="3_myly5"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_alb78"]
+[ext_resource type="Script" uid="uid://bkpadnogsoev" path="res://scripts/levels/rich_text_label15.gd" id="5_tdikh"]
+
+[node name="Node2D" type="Control" unique_id=381757683]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1289969502]
+layout_mode = 0
+offset_right = 1985.0
+offset_bottom = 1084.0
+texture = ExtResource("1_2q87n")
+
+[node name="Control" type="Control" parent="." unique_id=489018857]
+anchors_preset = 0
+offset_right = 1985.0
+offset_bottom = 1084.0
+script = ExtResource("2_acbrd")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=736939951]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.544
+anchor_bottom = 0.94900006
+offset_left = 128.0
+offset_top = 546.0
+offset_right = 0.15991211
+offset_bottom = 0.28393555
+texture = ExtResource("3_myly5")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1375952022]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15900001
+anchor_top = 0.76600003
+anchor_right = 0.45900002
+anchor_bottom = 0.8880001
+offset_left = -0.61502075
+offset_top = -0.34405518
+offset_right = 0.88494873
+offset_bottom = 0.40789795
+theme_override_fonts/normal_font = ExtResource("4_alb78")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("5_tdikh")

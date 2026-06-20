@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dl4hyjbowakeo"]
+
+[ext_resource type="Texture2D" uid="uid://bqjmkiv6oyrdp" path="res://assets/images/Выезд 1 кадр.png" id="1_m6oy1"]
+[ext_resource type="Script" uid="uid://8lely2hdnap6" path="res://scripts/levels/control30,1.gd" id="1_sgu5c"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="2_mm840"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="3_gxj52"]
+[ext_resource type="Script" uid="uid://dd2p21s85mm47" path="res://scripts/levels/rich_text_label30,1.gd" id="3_m6oy1"]
+
+[node name="Node2D" type="Control" unique_id=1147170601]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=262633782]
+layout_mode = 0
+offset_right = 1977.0
+offset_bottom = 1077.0
+texture = ExtResource("1_m6oy1")
+
+[node name="Control" type="Control" parent="." unique_id=1007824848]
+anchors_preset = 0
+offset_right = 1981.0
+offset_bottom = 1084.0
+script = ExtResource("1_sgu5c")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=697400841]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.78300005
+anchor_right = 0.45000002
+anchor_bottom = 1.0600001
+offset_left = 5.0
+offset_top = 0.22796631
+offset_right = -0.4500122
+offset_bottom = -0.040039063
+texture = ExtResource("3_gxj52")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1316222064]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.066
+anchor_top = 0.82100004
+anchor_right = 0.386
+anchor_bottom = 0.933
+offset_left = -0.7460022
+offset_top = 0.035949707
+offset_right = -0.6660156
+offset_bottom = -0.37200928
+theme_override_fonts/normal_font = ExtResource("2_mm840")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("3_m6oy1")

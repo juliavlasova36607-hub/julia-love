@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c41v3pqre7fyf"]
+
+[ext_resource type="Texture2D" uid="uid://cvu6u3q8xpcms" path="res://assets/images/черный фон.jpg" id="1_xdmql"]
+[ext_resource type="Script" uid="uid://caej451urr5pb" path="res://scripts/levels/control27,3.gd" id="2_hu6pf"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="3_sfn1q"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_8o7o4"]
+[ext_resource type="Script" uid="uid://bpwjam5fdlha" path="res://scripts/levels/rich_text_label27,3.gd" id="5_nwjaf"]
+
+[node name="Node2D" type="Control" unique_id=2119035963]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=639833668]
+layout_mode = 0
+offset_right = 1982.0
+offset_bottom = 1079.0
+texture = ExtResource("1_xdmql")
+
+[node name="Control" type="Control" parent="." unique_id=236510426]
+anchors_preset = 0
+offset_right = 1982.0
+offset_bottom = 1080.0
+script = ExtResource("2_hu6pf")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=545632041]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18800001
+anchor_top = 0.67
+anchor_right = 0.88400006
+anchor_bottom = 1.0610001
+offset_left = -0.61602783
+offset_top = 0.39996338
+offset_right = 0.91186523
+offset_bottom = 0.11987305
+texture = ExtResource("3_sfn1q")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1792294848]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.29000002
+anchor_top = 0.72400004
+anchor_right = 0.77500004
+anchor_bottom = 0.882
+offset_left = 0.2199707
+offset_top = 0.079956055
+offset_right = -0.050048828
+offset_bottom = 0.4399414
+theme_override_fonts/normal_font = ExtResource("4_8o7o4")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("5_nwjaf")

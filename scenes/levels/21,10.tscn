@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c7ypq4gixlnnd"]
+
+[ext_resource type="Texture2D" uid="uid://bfmtgc6nrbqmr" path="res://assets/images/Чтото объясняет.png" id="1_176t3"]
+[ext_resource type="Script" uid="uid://d1cygu4u6ic25" path="res://scripts/levels/control21,10.gd" id="2_j33qt"]
+[ext_resource type="Texture2D" uid="uid://dyoxkark7vedq" path="res://assets/images/РАМА-no-bg-preview (carve.photos).png" id="3_3um6u"]
+[ext_resource type="FontFile" uid="uid://nj42x5btlpwm" path="res://fonts/Farabee Light.ttf" id="4_u3riu"]
+[ext_resource type="Script" uid="uid://c5egy1xfl5wdh" path="res://scripts/levels/rich_text_label21,10.gd" id="5_4385v"]
+
+[node name="Node2D" type="Control" unique_id=694327738]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1980.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1943507813]
+layout_mode = 0
+offset_right = 1985.0
+offset_bottom = 1084.0
+texture = ExtResource("1_176t3")
+
+[node name="Control" type="Control" parent="." unique_id=1768125894]
+anchors_preset = 0
+offset_right = 1988.0
+offset_bottom = 1084.0
+script = ExtResource("2_j33qt")
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=150330871]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013
+anchor_top = 0.726
+anchor_right = 0.586
+anchor_bottom = 1.0580001
+offset_left = 0.15600014
+offset_top = 0.015991211
+offset_right = 0.031982422
+offset_bottom = 0.12792969
+texture = ExtResource("3_3um6u")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1846676990]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.093
+anchor_top = 0.777
+anchor_right = 0.5
+anchor_bottom = 0.90500003
+offset_left = -0.8840027
+offset_top = -0.26800537
+offset_right = 9.0
+offset_bottom = -0.020019531
+theme_override_fonts/normal_font = ExtResource("4_u3riu")
+theme_override_font_sizes/normal_font_size = 27
+script = ExtResource("5_4385v")
